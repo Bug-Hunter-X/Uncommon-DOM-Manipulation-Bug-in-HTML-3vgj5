@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    const newDiv = document.createElement('div');
+    newDiv.innerHTML = '<h1>Hello</h1>';
+    document.getElementById('myDiv').appendChild(newDiv);
+
+    // Correctly access and modify h1 element AFTER it's appended to the DOM
+    const h1Element = newDiv.querySelector('h1');
+    h1Element.style.color = 'blue';
+  </script>
+</body>
+</html>
