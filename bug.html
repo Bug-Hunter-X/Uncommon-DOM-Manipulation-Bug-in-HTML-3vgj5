@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    // Incorrectly using innerHTML to set the content of a dynamically created element before it's added to the DOM
+    const newDiv = document.createElement('div');
+    newDiv.innerHTML = '<h1>Hello</h1>';
+    document.getElementById('myDiv').appendChild(newDiv);
+
+    //The below code will throw an error, because newDiv is not yet part of the DOM
+    const h1Element = newDiv.querySelector('h1');
+    h1Element.style.color = 'blue';
+  </script>
+</body>
+</html>
